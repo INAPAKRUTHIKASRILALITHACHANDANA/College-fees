@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="bootstrap.css">
+    <link rel="stylesheet" href="bootstrap-icons-1.11.3/font/bootstrap-icons.css">
+    <style>
+        body{
+            background: linear-gradient(to right, #ffe0e0, #fff9c4);
+        }
+    </style>
+    <script>
+        function submit(){
+            document.getElementById("Details").style.display="block";
+            var R=parseInt(document.getElementById("rank").value);
+            var M=parseInt(document.getElementById("marks").value);
+            var T=200000+100*R-500*M;
+            var S=600000-50*R+200*M;
+            var B=R/M;
+            document.getElementById("cost").innerHTML="Your estimated tuition fee for one year is: " +"<b>" +T +" INR" + "<b>";
+            document.getElementById("fee").innerHTML= + T ;
+            document.getElementById("salary").innerHTML= + S; 
+            document.getElementById("bep").innerHTML= + B;   
+        }
+    </script>
+</head>
+<body class="container-fluid">
+    <div class="mt-4 p-5 border border-3 border-dark">
+        <div class="row">
+            <div class="col">
+                <label>Please enter your <b>Eamcet Rank:</b></label><br>
+                <input type="text" class="form-control" id="rank" placeholder="enter your rank">
+            </div>
+            <div class="col">
+                <label>Enter your <b>Intermediate IP Marks:</b></label><br>
+                <input type="text" class="form-control" id="marks" placeholder="enter your marks">
+            </div>
+        </div><br>
+        <div class="row">
+            <div class="col">
+                <label>Enter your <b>College name</b></label><br>
+                <select class="form-control" id="College">
+                    <option>Enter Your college name</option>
+                    <option>Andhra University College</option>
+                    <option>Gayatri College</option>
+                    <option>RVR & JC College</option>
+                    <option>JNTU College</option>
+                    <option>Gudlavalleru college</option>
+                </select>
+            </div>
+            <div class="col">
+                <label>Enter your <b>course</b></label><br>
+                <select class="form-control" id="Marks">
+                    <option>Enter your course</option>
+                    <option>CSE</option>
+                    <option>AI&ML</option>
+                    <option>EEE</option>
+                    <option>ECE</option>
+                </select>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col text-center">
+                <button onclick="submit()" class="btn btn-primary btn-lg">Submit</button>
+            </div>
+        </div>
+        <div class="mt-4 text-center">
+            <p id="cost"></p>
+        </div>
+    </div>
+    <div id="Details" class="mt-3" style="display:none;">
+        <div class="border border-2 border-danger p-3 mt-3 w-60 text-center">
+            <h2 class="bg-success p-3 text-white">All Details</h2>
+            <dl>
+                <dt>Total Cost: </dt>
+                <dd id="fee"></dd>
+                <dt>Starting Salary: </dt>
+                <dd id="salary"></dd>
+                <dt>Break-even Point: </dt>
+                <dd id="bep"></dd>
+            </dl>
+        </div>
+        <br><br><br>
+        <div>
+            <div style="font-family: 'Courier New', Courier, monospace;">
+                <p>If you would like to understand the calculation in more depth, please take a look at the detailed information provided here. It offers a comprehensive explanation of the steps involved and should clarify any questions you may have.</p>
+            </div>
+            <div class="text-center">
+                <a href="college fees1.html" target="_blank"><button class="btn btn-warning btn-lg">See Details</button></a>
+            </div>
+        </div>
+    </div>
+    <script src="jquery.js"></script>
+    <script src="bootstrap.bundle.js"></script>
+</body>
+</html>
