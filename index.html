@@ -13,6 +13,7 @@
     </style>
     <script>
         function submit(){
+            document.getElementById("ranges").style.display="none";
             document.getElementById("Details").style.display="block";
             var R=parseInt(document.getElementById("rank").value);
             var M=parseInt(document.getElementById("marks").value);
@@ -24,6 +25,18 @@
             document.getElementById("salary").innerHTML= + S; 
             document.getElementById("bep").innerHTML= + B;   
         }
+        function rankchange(){
+            document.getElementById("rank").value=document.getElementById("erank").value;
+        }
+        function markschange(){
+            document.getElementById("marks").value=document.getElementById("imarks").value;
+        }
+        function erankchange(){
+            document.getElementById("range1").style.display="block";
+        }
+        function imarkschange(){
+            document.getElementById("range2").style.display="block";
+        }
     </script>
 </head>
 <body class="container-fluid">
@@ -31,11 +44,19 @@
         <div class="row">
             <div class="col">
                 <label>Please enter your <b>Eamcet Rank:</b></label><br>
-                <input type="text" class="form-control" id="rank" placeholder="enter your rank">
+                <input type="text" class="form-control" id="rank" placeholder="enter your rank" onfocus="erankchange()">
             </div>
             <div class="col">
                 <label>Enter your <b>Intermediate IP Marks:</b></label><br>
-                <input type="text" class="form-control" id="marks" placeholder="enter your marks">
+                <input type="text" class="form-control" id="marks" placeholder="enter your marks" onfocus="imarkschange()">
+            </div>
+        </div><br>
+        <div class="row" id="ranges">
+            <div class="col" id="range1" style="display: none;">
+                1 <input type="range" onchange="rankchange()" id="erank" min="1" max="100000"> 100000
+            </div>
+            <div class="col" id="range2" style="display: none;">
+                250 <input type="range" onchange="markschange()" id="imarks" min="250" max="1000"> 1000
             </div>
         </div><br>
         <div class="row">
